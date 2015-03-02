@@ -9,8 +9,8 @@ var main = new UI.Card({
   subtitle: 'Shake it!',
   body: 'Images by Ryan Reid from The Noun Project.',
   action: {
-    up: 'images/one.png',
-    down: 'images/two.png'
+    up: 'images/one_tiny.png',
+    down: 'images/two_tiny.png'
   }
 });
 
@@ -35,13 +35,17 @@ main.on('click', 'down', function(e) {
   twoWindow.show();
 });
 
-var roll;
+/*
 var getRandomInt = function(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 };
+*/
+
+var diceArray = [1,2,3,4,5,6];
 
 var pickDie = function() {
-  roll = getRandomInt(1, 6);
+  var roll = diceArray[Math.floor(Math.random() * diceArray.length)];
+  //roll = getRandomInt(1, 6);
   
   var imageString;
   
@@ -67,6 +71,8 @@ var pickDie = function() {
     image: imageString
   });
   
+  oneWindow.remove(image);
+  
   // Hide any existing window and add dice image
   oneWindow.hide();
   oneWindow.add(image);
@@ -76,9 +82,12 @@ var pickDie = function() {
   oneWindow.show();
 };
 
+/*
+oneWindow.on('accelTap', function(e) {
+  pickDie();
+});
+*/
 
 oneWindow.on('click', 'select', function(e) {
   pickDie();
 });
-
-
