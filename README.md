@@ -2,4 +2,4 @@
 
 Written using Pebble.js library
 
-Tested using Firmware v2.9
+Tested using firmware v2.9
