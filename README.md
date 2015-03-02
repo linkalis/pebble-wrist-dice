@@ -1,2 +1,2 @@
 # pebble-wrist-dice
-Luck be a lady (Pebby style)
+Luck be a lady (Pebble style)
