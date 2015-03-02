@@ -1,2 +1,5 @@
 # pebble-wrist-dice
-Luck be a lady (Pebble style)
+
+Written using Pebble.js library
+
+Tested using Firmware v2.9
