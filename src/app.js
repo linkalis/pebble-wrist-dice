@@ -6,7 +6,7 @@ var Vibe = require('ui/vibe');
 
 var main = new UI.Card({
   title: 'Wrist Dice',
-  subtitle: 'Shake it!',
+  subtitle: "Shake 'em!",
   body: 'Images by Ryan Reid from The Noun Project.',
   action: {
     up: 'images/one_tiny.png',
@@ -23,7 +23,7 @@ Accel.init();
 // Define oneWindow for one die
 var oneWindow = new UI.Window({ fullscreen: true });
 
-// Define two Window for two dice
+// Define twoWindow for two dice
 var twoWindow = new UI.Window({ fullscreen: true });
 
 // Define one die or two dice actions from main window
@@ -35,17 +35,15 @@ main.on('click', 'down', function(e) {
   twoWindow.show();
 });
 
-/*
-var getRandomInt = function(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-};
-*/
 
-var diceArray = [1,2,3,4,5,6];
+var image;
 
 var pickDie = function() {
-  var roll = diceArray[Math.floor(Math.random() * diceArray.length)];
-  //roll = getRandomInt(1, 6);
+  oneWindow.remove(image);
+  
+  var diceArray = [1,2,3,4,5,6];
+  var random = Math.floor(Math.random() * 6) + 1;
+  var roll = diceArray[random];
   
   var imageString;
   
@@ -65,29 +63,28 @@ var pickDie = function() {
     imageString = 'images/five.png';
   }
   
-  var image = new UI.Image({
+  image = new UI.Image({
     position: new Vector2(0, 20),
     size: new Vector2(144, 144),
     image: imageString
   });
   
-  oneWindow.remove(image);
-  
   // Hide any existing window and add dice image
-  oneWindow.hide();
+  //oneWindow.hide();
   oneWindow.add(image);
   
   // Vibrate and display the window with dice image
   Vibe.vibrate('short');
-  oneWindow.show();
+  //oneWindow.show();
 };
 
-/*
 oneWindow.on('accelTap', function(e) {
   pickDie();
 });
-*/
 
+/*
 oneWindow.on('click', 'select', function(e) {
+  oneWindow.remove(image);
   pickDie();
 });
+*/
